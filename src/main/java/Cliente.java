@@ -1,7 +1,13 @@
 public class Cliente extends Pessoa{
 
     public Cliente(String nome, String cpf) {
+
         super(nome);
+
+        if(cpf == null){
+            throw new IllegalArgumentException("Algum parametro null");
+        }
+
         this.cpf = cpf;
     }
 

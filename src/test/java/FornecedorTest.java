@@ -15,4 +15,14 @@ class FornecedorTest {
         assertEquals("213213", fornecedor1.getCnpj());
     }
 
+    @Test
+    void deveRetornarExcecaoCnpj(){
+        try {
+            Fornecedor fornecedor = new Fornecedor("Tambasa", null);
+            fail();
+        }catch (IllegalArgumentException  e){
+            assertEquals("Algum parametro null", e.getMessage());
+        }
+    }
+
 }

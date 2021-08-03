@@ -1,12 +1,13 @@
 public class Venda extends Transacao{
 
     private Cliente cliente;
-    private Produto produto;
 
-    public Venda(String dataVenda,Cliente cliente, Produto produto, int qtdeVendida) {//String dataVenda, String cliente, String produto, Integer qtdeVendida
+    public Venda(String dataVenda,Cliente cliente, Produto produto, int qtdeVendida) {
         super(dataVenda, produto, qtdeVendida);
+        if(cliente == null) {
+            throw new IllegalArgumentException("Algum parametro null");
+        }
         this.cliente = cliente;
-        this.produto = produto;
     }
 
     public boolean vender(Produto produto, Integer qtdeVendida){
@@ -16,7 +17,7 @@ public class Venda extends Transacao{
         }
         produto.debitarEstoque(qtdeVendida);
 
-        produto.registrarHistorico("Valor da venda = " + produto.calcularValorVenda(qtdeVendida) );
+        produto.registrarHistorico("Valor da venda = " + produto.calcularValorVenda(qtdeVendida));
 
         if(produto.verificarEstoqueBaixo()){
             produto.registrarHistorico("Estoque Baixo" + produto.getNome());

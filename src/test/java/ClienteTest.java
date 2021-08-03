@@ -15,4 +15,14 @@ class ClienteTest {
         Cliente cliente1 = new Cliente("Marco", "123");
         assertEquals("123", cliente1.getCpf());
     }
+
+    @Test
+    void deveRetornarExcecaoCpf(){
+        try {
+            Cliente cliente = new Cliente("Marco", null);
+            fail();
+        }catch (IllegalArgumentException  e){
+            assertEquals("Algum parametro null", e.getMessage());
+        }
+    }
 }

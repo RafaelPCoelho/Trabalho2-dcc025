@@ -3,6 +3,11 @@ public class Fornecedor extends Pessoa{
 
     public Fornecedor(String nome, String cnpj) {
         super(nome);
+
+        if(cnpj == null){
+            throw new IllegalArgumentException("Algum parametro null");
+        }
+
         this.cnpj = cnpj;
     }
 

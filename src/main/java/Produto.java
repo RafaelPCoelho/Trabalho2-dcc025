@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Produto {
 
     private String nome;
     private Integer qtdeEstoque;
-    private float precoUnit;
+    private Float precoUnit;
     private Integer estoqueMinimo;
     private Integer estoqueMaximo;
     private List<String> historico;
@@ -15,6 +16,7 @@ public class Produto {
         this.precoUnit = precoUnit;
         this.estoqueMinimo = estoqueMinimo;
         this.estoqueMaximo = estoqueMaximo;
+        this.historico = new ArrayList<String>();
     }
 
     public String getNome() {
@@ -23,6 +25,14 @@ public class Produto {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Integer getQtdeEstoque() {
+        return qtdeEstoque;
+    }
+
+    public void setQtdeEstoque(Integer qtdeEstoque) {
+        this.qtdeEstoque = qtdeEstoque;
     }
 
     public void registrarHistorico(String transacao) {
@@ -77,7 +87,7 @@ public class Produto {
         }
     }
 
-    public void comprar(String dataCompra, Fornecedor fornecedor, Integer qtdeCompra, float precoUnit){
+    public void comprar(String dataCompra, Fornecedor fornecedor, Integer qtdeCompra, Float precoUnit){
         Compra compra = new Compra(dataCompra, this,fornecedor,qtdeCompra, precoUnit);
 
         if(compra.comprar(this, qtdeCompra)){
