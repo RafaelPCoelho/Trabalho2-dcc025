@@ -7,7 +7,7 @@ class TransacaoTest {
     @Test
     void deveRetornarExcecaoData(){
         try{
-            Produto produto1 = new Produto("Caneta", 100, 1.2F, 100, 200);
+            Produto produto1 = new Produto("Caneta", 100, 2, 100, 200);
             Transacao transacao = new Transacao(null, produto1, 200);
             fail();
         }catch (IllegalArgumentException e){
@@ -28,7 +28,7 @@ class TransacaoTest {
     @Test
     void deveRetornarExecaoQtde(){
         try{
-            Produto produto1 = new Produto("Caneta", 100, 1.2F, 100, 200);
+            Produto produto1 = new Produto("Caneta", 100, 2, 100, 200);
             Transacao transacao = new Transacao("04/08/21",produto1,null);
             fail();
         }catch (IllegalArgumentException e){

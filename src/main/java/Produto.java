@@ -5,12 +5,17 @@ public class Produto {
 
     private String nome;
     private Integer qtdeEstoque;
-    private Float precoUnit;
+    private Integer precoUnit;
     private Integer estoqueMinimo;
     private Integer estoqueMaximo;
     private List<String> historico;
 
-    public Produto(String nome, Integer qtdeEstoque, float precoUnit, Integer estoqueMinimo, Integer estoqueMaximo) {
+    public Produto(String nome, Integer qtdeEstoque, Integer precoUnit, Integer estoqueMinimo, Integer estoqueMaximo) {
+
+        if(nome == null || qtdeEstoque == null || precoUnit == null || estoqueMinimo == null || estoqueMaximo == null){
+            throw new IllegalArgumentException("Algum parametro null");
+        }
+
         this.nome = nome;
         this.qtdeEstoque = qtdeEstoque;
         this.precoUnit = precoUnit;
@@ -83,7 +88,7 @@ public class Produto {
         Venda venda = new Venda(dataVenda, cliente, this,qtdeVendida);
 
         if(venda.vender(this, qtdeVendida)){
-            this.registrarHistorico("Venda do produto" + this.getNome());
+            this.registrarHistorico("Venda do produto" + " " + this.getNome());
         }
     }
 
@@ -91,7 +96,7 @@ public class Produto {
         Compra compra = new Compra(dataCompra, this,fornecedor,qtdeCompra, precoUnit);
 
         if(compra.comprar(this, qtdeCompra)){
-            this.registrarHistorico("Compra do produto" + this.getNome());
+            this.registrarHistorico("Compra do produto" + " " + this.getNome());
         }
     }
 }

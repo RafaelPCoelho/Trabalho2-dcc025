@@ -7,7 +7,7 @@ class CompraTest {
     @Test
     void deveRetornarExcecaoFornecedorNulo(){
         try{
-            Produto produto1 = new Produto("Caneta", 100, 1.2F, 100, 200);
+            Produto produto1 = new Produto("Caneta", 100, 2, 100, 200);
             Compra compra = new Compra("01/08/2021", produto1, null, 200,1.2F);
 
             fail();
@@ -19,7 +19,7 @@ class CompraTest {
     @Test
     void deveRetornarExcecaoPrecoUnitarioNulo(){
         try{
-            Produto produto1 = new Produto("Caneta", 100, 1.2F, 100, 200);
+            Produto produto1 = new Produto("Caneta", 100, 2, 100, 200);
             Fornecedor fornecedor = new Fornecedor("Tambasa", "1234.");
             Compra compra = new Compra("01/08/2021", produto1, fornecedor, 200,null);
 
