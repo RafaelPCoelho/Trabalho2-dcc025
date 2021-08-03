@@ -7,7 +7,7 @@ public class Produto {
     private float precoUnit;
     private Integer estoqueMinimo;
     private Integer estoqueMaximo;
-    private List<Produto> historico;
+    private List<String> historico;
 
     public Produto(String nome, Integer qtdeEstoque, float precoUnit, Integer estoqueMinimo, Integer estoqueMaximo) {
         this.nome = nome;
@@ -17,12 +17,20 @@ public class Produto {
         this.estoqueMaximo = estoqueMaximo;
     }
 
-    public void registrarHistorico(Transacao transacao) {
-
+    public String getNome() {
+        return nome;
     }
 
-    public void exibirHistorico(){
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
+    public void registrarHistorico(String transacao) {
+        this.historico.add(transacao);
+    }
+
+    public List<String> exibirHistorico(){
+        return this.historico;
     }
 
     public void debitarEstoque(Integer quantidade){
@@ -33,27 +41,43 @@ public class Produto {
         qtdeEstoque += quantidade;
     }
 
-    public void verificarEstoqueBaixo(){
+    public boolean verificarEstoqueBaixo(){
+        if (estoqueMinimo > qtdeEstoque){
+            return true;
+        }
 
+        return false;
     }
 
-    public void verificarEstoqueInsuficiente(Integer quantidade){
+    public boolean verificarEstoqueInsuficiente(Integer quantidade){
+        if(quantidade > qtdeEstoque ){
+            return true;
+        }
 
+        return false;
     }
 
-    public void verificarEstoqueExcedente(Integer quantidade){
+    public boolean verificarEstoqueExcedente(Integer quantidade){
+        if(estoqueMaximo < (qtdeEstoque + quantidade)){
+            return true;
+        }
 
+        return false;
     }
 
-    public void calcularValorVenda(Integer quantidade){
-
+    public float calcularValorVenda(Integer quantidade){
+        return quantidade * precoUnit;
     }
 
     public void vender(String dataVenda, Cliente cliente, Integer qtdeVendida){
-
+        Venda venda = new Venda(dataVenda, cliente, this,qtdeVendida);
     }
 
     public void comprar(String dataCompra, Fornecedor fornecedor, Integer qtdeCompra, float precoUnit){
+        Compra compra = new Compra(dataCompra, this,fornecedor,qtdeCompra, precoUnit);
 
+        if(compra.comprar(this, qtdeCompra)){
+            this.registrarHistorico("Compra do produto" + );
+        }
     }
 }
