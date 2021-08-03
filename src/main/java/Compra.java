@@ -12,6 +12,11 @@ public class Compra extends Transacao{
     }
 
     public boolean comprar(Produto produto, Integer qtdeCompra){
+        if(produto.verificarEstoqueExcedente(qtdeCompra)){
+            produto.registrarHistorico("Estoque excedente" + produto.getNome());
+            return false;
+        }
+        produto.creditarEstoque(qtdeCompra);
         return true;
     }
 }

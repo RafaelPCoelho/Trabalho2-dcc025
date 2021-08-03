@@ -9,7 +9,18 @@ public class Venda extends Transacao{
         this.produto = produto;
     }
 
-    public boolean vender(String produto, Integer qtdeVendida){
-       return true;
+    public boolean vender(Produto produto, Integer qtdeVendida){
+        if(produto.verificarEstoqueInsuficiente(qtdeVendida)){
+            produto.registrarHistorico("Produto Insuficiente" + produto.getNome());
+            return false;
+        }
+        produto.debitarEstoque(qtdeVendida);
+
+        produto.registrarHistorico("Valor da venda = " + produto.calcularValorVenda(qtdeVendida) );
+
+        if(produto.verificarEstoqueBaixo()){
+            produto.registrarHistorico("Estoque Baixo" + produto.getNome());
+        }
+        return true;
     }
 }

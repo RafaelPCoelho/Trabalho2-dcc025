@@ -71,13 +71,17 @@ public class Produto {
 
     public void vender(String dataVenda, Cliente cliente, Integer qtdeVendida){
         Venda venda = new Venda(dataVenda, cliente, this,qtdeVendida);
+
+        if(venda.vender(this, qtdeVendida)){
+            this.registrarHistorico("Venda do produto" + this.getNome());
+        }
     }
 
     public void comprar(String dataCompra, Fornecedor fornecedor, Integer qtdeCompra, float precoUnit){
         Compra compra = new Compra(dataCompra, this,fornecedor,qtdeCompra, precoUnit);
 
         if(compra.comprar(this, qtdeCompra)){
-            this.registrarHistorico("Compra do produto" + );
+            this.registrarHistorico("Compra do produto" + this.getNome());
         }
     }
 }
