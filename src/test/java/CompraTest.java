@@ -1,5 +1,7 @@
-import org.junit.jupiter.api.Test;
+//RAFAEL FIALHO PINTO COELHO MATRICULA: 201965573C
+//WELLINGTON PEREIRA SILVA MATRICULA: 201935041
 
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CompraTest {

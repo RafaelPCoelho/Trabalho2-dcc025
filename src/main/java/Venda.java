@@ -1,3 +1,6 @@
+//RAFAEL FIALHO PINTO COELHO MATRICULA: 201965573C
+//WELLINGTON PEREIRA SILVA MATRICULA: 201935041
+
 public class Venda extends Transacao{
 
     private Cliente cliente;
