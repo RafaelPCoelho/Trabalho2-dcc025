@@ -21,7 +21,7 @@ class FornecedorTest {
             Fornecedor fornecedor = new Fornecedor("Tambasa", null);
             fail();
         }catch (IllegalArgumentException  e){
-            assertEquals("Algum parametro null", e.getMessage());
+            assertEquals("Falta informar o cnpj", e.getMessage());
         }
     }
 

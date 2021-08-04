@@ -11,7 +11,7 @@ class TransacaoTest {
             Transacao transacao = new Transacao(null, produto1, 200);
             fail();
         }catch (IllegalArgumentException e){
-            assertEquals("Algum parametro null", e.getMessage());
+            assertEquals("Falta parametro na transacao", e.getMessage());
         }
     }
 
@@ -21,7 +21,7 @@ class TransacaoTest {
             Transacao transacao = new Transacao("04/08/21",null,200000);
             fail();
         }catch (IllegalArgumentException e){
-            assertEquals("Algum parametro null", e.getMessage());
+            assertEquals("Falta parametro na transacao", e.getMessage());
         }
     }
 
@@ -32,7 +32,7 @@ class TransacaoTest {
             Transacao transacao = new Transacao("04/08/21",produto1,null);
             fail();
         }catch (IllegalArgumentException e){
-            assertEquals("Algum parametro null", e.getMessage());
+            assertEquals("Falta parametro na transacao", e.getMessage());
         }
     }
 }

@@ -5,7 +5,7 @@ public class Fornecedor extends Pessoa{
         super(nome);
 
         if(cnpj == null){
-            throw new IllegalArgumentException("Algum parametro null");
+            throw new IllegalArgumentException("Falta informar o cnpj");
         }
 
         this.cnpj = cnpj;

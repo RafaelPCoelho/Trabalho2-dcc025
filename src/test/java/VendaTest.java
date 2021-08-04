@@ -23,7 +23,7 @@ class VendaTest {
             Venda venda1 = new Venda("04/08/21",null,produto1,100000000);
             fail();
         }catch (IllegalArgumentException  e){
-            assertEquals("Algum parametro null", e.getMessage());
+            assertEquals("Falta informar o cliente", e.getMessage());
         }
     }
 }

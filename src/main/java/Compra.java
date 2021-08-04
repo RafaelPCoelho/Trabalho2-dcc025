@@ -8,7 +8,7 @@ public class Compra extends Transacao{
         super(dataCompra, produto, qtdeCompra);
 
         if(fornecedor == null || precoUnit == null){
-            throw new IllegalArgumentException("Algum parametro null");
+            throw new IllegalArgumentException("Falta parametro na compra");
         }
 
         this.precoUnit = precoUnit;

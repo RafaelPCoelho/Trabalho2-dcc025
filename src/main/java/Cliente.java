@@ -5,7 +5,7 @@ public class Cliente extends Pessoa{
         super(nome);
 
         if(cpf == null){
-            throw new IllegalArgumentException("Algum parametro null");
+            throw new IllegalArgumentException("Falta informar o cpf");
         }
 
         this.cpf = cpf;

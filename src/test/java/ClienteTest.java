@@ -22,7 +22,7 @@ class ClienteTest {
             Cliente cliente = new Cliente("Marco", null);
             fail();
         }catch (IllegalArgumentException  e){
-            assertEquals("Algum parametro null", e.getMessage());
+            assertEquals("Falta informar o cpf", e.getMessage());
         }
     }
 }

@@ -15,7 +15,7 @@ class PessoaTest {
             Pessoa pessoa = new Pessoa(null);
             fail();
         }catch (IllegalArgumentException e){
-            assertEquals("nome nao pode ser null",e.getMessage());
+            assertEquals("Falta informar o nome",e.getMessage());
         }
     }
 

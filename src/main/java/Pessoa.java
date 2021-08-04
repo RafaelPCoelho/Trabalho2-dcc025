@@ -3,7 +3,7 @@ public class Pessoa {
 
     public Pessoa(String nome) {
         if (nome == null) {
-            throw new IllegalArgumentException("nome nao pode ser null");
+            throw new IllegalArgumentException("Falta informar o nome");
         }
         this.nome = nome;
     }

@@ -5,7 +5,7 @@ public class Venda extends Transacao{
     public Venda(String dataVenda,Cliente cliente, Produto produto, int qtdeVendida) {
         super(dataVenda, produto, qtdeVendida);
         if(cliente == null) {
-            throw new IllegalArgumentException("Algum parametro null");
+            throw new IllegalArgumentException("Falta informar o cliente");
         }
         this.cliente = cliente;
     }

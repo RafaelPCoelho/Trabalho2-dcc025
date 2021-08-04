@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,7 +15,7 @@ class ProdutoTest {
             Produto produto1 = new Produto(null, 100, 2, 100, 200);
             fail();
         }catch (IllegalArgumentException e){
-            assertEquals("Algum parametro null", e.getMessage());
+            assertEquals("Falta parametro no produto", e.getMessage());
         }
     }
 
@@ -24,7 +25,7 @@ class ProdutoTest {
             Produto produto1 = new Produto("Caneta", null, 2, 100, 200);
             fail();
         }catch (IllegalArgumentException e){
-            assertEquals("Algum parametro null", e.getMessage());
+            assertEquals("Falta parametro no produto", e.getMessage());
         }
     }
 
@@ -34,7 +35,7 @@ class ProdutoTest {
             Produto produto1 = new Produto("Caneta", 100, null, 100, 200);
             fail();
         }catch (IllegalArgumentException e){
-            assertEquals("Algum parametro null", e.getMessage());
+            assertEquals("Falta parametro no produto", e.getMessage());
         }
     }
 
@@ -44,7 +45,7 @@ class ProdutoTest {
             Produto produto1 = new Produto("Caneta", 100, 2, null, 200);
             fail();
         }catch (IllegalArgumentException e){
-            assertEquals("Algum parametro null", e.getMessage());
+            assertEquals("Falta parametro no produto", e.getMessage());
         }
     }
 
@@ -54,11 +55,10 @@ class ProdutoTest {
             Produto produto1 = new Produto("Caneta", 100, 2, 100, null);
             fail();
         }catch (IllegalArgumentException e){
-            assertEquals("Algum parametro null", e.getMessage());
+            assertEquals("Falta parametro no produto", e.getMessage());
         }
     }
 
-    ///*------------------------*///
 
     @Test
     void deveRetornarHistoricoCompra(){
@@ -79,8 +79,6 @@ class ProdutoTest {
 
         assertEquals(lista, produto.exibirHistorico());
     }
-
-    ///*-----------------------*//
 
 
     @Test
@@ -119,14 +117,6 @@ class ProdutoTest {
         assertFalse(produto1.verificarEstoqueExcedente(95));
     }
 
-    ///*--------------------------------*///
-
-    @Test
-    void deveRetornaNomeProduto(){
-        Produto produto1 = new Produto("Caneta", 100, 2, 10, 200);
-        assertEquals("Caneta",produto1.getNome());
-    }
-
     @Test
     void deveDebitarEstoque(){
         Produto produto1 = new Produto("Caneta", 100, 2, 10, 200);
@@ -142,10 +132,16 @@ class ProdutoTest {
         produto1.comprar("04/08/21", new Fornecedor("Tambasa", "1234"),2, 2.0F);
         assertEquals(102,produto1.getQtdeEstoque());
     }
+
+    @Test
+    void deveRetornarHistoricoVazio(){
+        Produto produto = new Produto("Caneta", 100, 2, 10, 200);
+        assertEquals(new ArrayList<String>(), produto.exibirHistorico());
+    }
+
     @Test
     void deveRetornarCalculoValorVenda(){
         Produto produto1 = new Produto("Caneta",100, 2,10,20);
-
         assertEquals(60.0,produto1.calcularValorVenda(30));
     }
 

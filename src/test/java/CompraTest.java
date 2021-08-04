@@ -12,7 +12,7 @@ class CompraTest {
 
             fail();
         }catch (IllegalArgumentException e){
-            assertEquals("Algum parametro null", e.getMessage());
+            assertEquals("Falta parametro na compra", e.getMessage());
         }
     }
 
@@ -25,7 +25,7 @@ class CompraTest {
 
             fail();
         }catch (IllegalArgumentException e){
-            assertEquals("Algum parametro null", e.getMessage());
+            assertEquals("Falta parametro na compra", e.getMessage());
         }
     }
 }

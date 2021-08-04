@@ -6,7 +6,7 @@ public class Transacao {
 
     public Transacao(String dataTransacao,Produto produto, Integer qtde) {
         if(dataTransacao == null || produto == null || qtde == null ){
-            throw new IllegalArgumentException("Algum parametro null");
+            throw new IllegalArgumentException("Falta parametro na transacao");
         }
 
         this.dataTransacao = dataTransacao;

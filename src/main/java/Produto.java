@@ -13,7 +13,7 @@ public class Produto {
     public Produto(String nome, Integer qtdeEstoque, Integer precoUnit, Integer estoqueMinimo, Integer estoqueMaximo) {
 
         if(nome == null || qtdeEstoque == null || precoUnit == null || estoqueMinimo == null || estoqueMaximo == null){
-            throw new IllegalArgumentException("Algum parametro null");
+            throw new IllegalArgumentException("Falta parametro no produto");
         }
 
         this.nome = nome;
